@@ -1,0 +1,12 @@
+import sqlite3
+
+connection = sqlite3.connect("worksphere.db")
+tables = connection.execute(
+    "SELECT name FROM sqlite_master WHERE type='table'"
+).fetchall()
+
+print("Database tables:")
+for table in tables:
+    print(table[0])
+
+connection.close()
